@@ -1,3 +1,4 @@
+
 import { Clock, Users, TrendingUp } from 'lucide-react';
 import { Recipe } from '@/types/recipe';
 
@@ -31,9 +32,9 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
   };
 
   const difficultyColors = {
-    fácil: 'text-green-600 dark:text-green-400',
-    médio: 'text-yellow-600 dark:text-yellow-400',
-    difícil: 'text-red-600 dark:text-red-400'
+    fácil: 'text-accent-foreground',
+    médio: 'text-primary',
+    difícil: 'text-destructive'
   };
 
   return (
@@ -43,10 +44,10 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
         <div className="flex items-center gap-3">
           <span className="text-3xl">{categoryEmojis[recipe.category]}</span>
           <div>
-            <h2 className="text-2xl font-bold font-lato text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-bold font-lato text-card-foreground">
               {recipe.name}
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
+            <p className="text-sm text-muted-foreground capitalize">
               {recipe.category}
             </p>
           </div>
@@ -57,7 +58,7 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
       </div>
 
       {/* Informações rápidas */}
-      <div className="flex items-center gap-6 mb-6 text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex items-center gap-6 mb-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <Clock className="h-4 w-4" />
           <span>{recipe.prepTime} min</span>
@@ -74,7 +75,7 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
 
       {/* Informações nutricionais */}
       <div className="mb-6">
-        <h3 className="text-lg font-semibold font-lato mb-3 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold font-lato mb-3 text-card-foreground">
           Informações Nutricionais
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
@@ -103,14 +104,14 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
 
       {/* Ingredientes */}
       <div className="mb-6">
-        <h3 className="text-lg font-semibold font-lato mb-3 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold font-lato mb-3 text-card-foreground">
           Ingredientes
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {adjustedIngredients.map((ingredient, index) => (
             <div key={index} className="flex justify-between items-center text-sm">
-              <span className="text-gray-700 dark:text-gray-300">{ingredient.name}</span>
-              <span className="text-lilac-600 dark:text-lilac-400 font-medium">
+              <span className="text-card-foreground">{ingredient.name}</span>
+              <span className="text-primary font-medium">
                 {ingredient.amount}{ingredient.unit}
               </span>
             </div>
@@ -120,16 +121,16 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
 
       {/* Modo de preparo */}
       <div>
-        <h3 className="text-lg font-semibold font-lato mb-3 text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold font-lato mb-3 text-card-foreground">
           Modo de Preparo
         </h3>
         <ol className="space-y-2">
           {recipe.instructions.map((instruction, index) => (
             <li key={index} className="flex gap-3 text-sm">
-              <span className="flex-shrink-0 w-6 h-6 bg-lilac-500 text-white rounded-full flex items-center justify-center text-xs font-semibold">
+              <span className="flex-shrink-0 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-semibold">
                 {index + 1}
               </span>
-              <span className="text-gray-700 dark:text-gray-300">{instruction}</span>
+              <span className="text-card-foreground">{instruction}</span>
             </li>
           ))}
         </ol>

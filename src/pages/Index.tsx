@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChefHat, ArrowLeft } from 'lucide-react';
@@ -72,7 +73,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-accent/20 dark:from-background dark:via-card/30 dark:to-accent/10">
       <div className="relative z-10">
         <ThemeToggle />
         
@@ -80,13 +81,13 @@ const Index = () => {
           {/* Header */}
           <header className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <ChefHat className="h-8 w-8 text-lilac-600 dark:text-lilac-400" />
-              <h1 className="text-4xl md:text-5xl font-bold font-lato text-gray-900 dark:text-white">
+              <ChefHat className="h-8 w-8 text-primary" />
+              <h1 className="text-4xl md:text-5xl font-bold font-lato text-foreground">
                 Comida Simples
               </h1>
             </div>
             {appState === 'home' && (
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Monte seu cardápio: selecione a base de cada almoço da semana ou gere uma sugestão instantânea. 
                 O Comida Simples faz o resto para você. 🍽️
               </p>
@@ -132,7 +133,7 @@ const Index = () => {
             {appState === 'now-result' && currentRecipe && (
               <div className="w-full max-w-4xl space-y-8">
                 <div className="text-center mb-6">
-                  <h2 className="text-3xl font-bold font-lato text-gray-900 dark:text-white mb-2">
+                  <h2 className="text-3xl font-bold font-lato text-foreground mb-2">
                     Sua Sugestão Para Agora! ⚡
                   </h2>
                   <Button
@@ -162,8 +163,8 @@ const Index = () => {
           </main>
 
           {/* Footer */}
-          <footer className="text-center mt-16 py-8 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
+          <footer className="text-center mt-16 py-8 border-t border-border">
+            <p className="text-muted-foreground text-sm">
               Feito com 💜 para simplificar sua cozinha
             </p>
           </footer>

@@ -7,83 +7,85 @@
 
 @layer base {
   :root {
-    --background: 254 252 255;
-    --foreground: 45 39 56;
+    /* Light mode - usando tons mais claros da paleta */
+    --background: 254 251 248; /* Baseado no F7E1D7 mais claro */
+    --foreground: 74 87 89; /* Baseado no 4A5759 mais suave */
 
     --card: 255 255 255;
-    --card-foreground: 45 39 56;
+    --card-foreground: 74 87 89;
 
     --popover: 255 255 255;
-    --popover-foreground: 45 39 56;
+    --popover-foreground: 74 87 89;
 
-    --primary: 168 85 247;
-    --primary-foreground: 255 255 255;
+    --primary: 237 175 184; /* EDAFB8 */
+    --primary-foreground: 74 87 89;
 
-    --secondary: 245 243 255;
-    --secondary-foreground: 107 33 168;
+    --secondary: 247 225 215; /* F7E1D7 */
+    --secondary-foreground: 74 87 89;
 
-    --muted: 250 249 255;
-    --muted-foreground: 148 130 171;
+    --muted: 222 189 210; /* DEDBD2 */
+    --muted-foreground: 74 87 89;
 
-    --accent: 240 235 255;
-    --accent-foreground: 107 33 168;
+    --accent: 176 196 177; /* B0C4B1 */
+    --accent-foreground: 74 87 89;
 
-    --destructive: 251 113 133;
+    --destructive: 220 38 127;
     --destructive-foreground: 255 255 255;
 
-    --border: 234 221 255;
-    --input: 234 221 255;
-    --ring: 192 132 252;
+    --border: 222 189 210; /* DEDBD2 */
+    --input: 222 189 210;
+    --ring: 237 175 184; /* EDAFB8 */
 
     --radius: 0.75rem;
 
     --sidebar-background: 255 255 255;
-    --sidebar-foreground: 45 39 56;
-    --sidebar-primary: 168 85 247;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 250 249 255;
-    --sidebar-accent-foreground: 107 33 168;
-    --sidebar-border: 234 221 255;
-    --sidebar-ring: 192 132 252;
+    --sidebar-foreground: 74 87 89;
+    --sidebar-primary: 237 175 184;
+    --sidebar-primary-foreground: 74 87 89;
+    --sidebar-accent: 247 225 215;
+    --sidebar-accent-foreground: 74 87 89;
+    --sidebar-border: 222 189 210;
+    --sidebar-ring: 237 175 184;
   }
 
   .dark {
-    --background: 30 25 40;
-    --foreground: 245 240 250;
+    /* Dark mode - usando tons mais escuros da paleta */
+    --background: 74 87 89; /* 4A5759 */
+    --foreground: 247 225 215; /* F7E1D7 */
 
-    --card: 40 35 50;
-    --card-foreground: 245 240 250;
+    --card: 90 105 108; /* Variação mais clara do 4A5759 */
+    --card-foreground: 247 225 215;
 
-    --popover: 40 35 50;
-    --popover-foreground: 245 240 250;
+    --popover: 90 105 108;
+    --popover-foreground: 247 225 215;
 
-    --primary: 196 181 253;
-    --primary-foreground: 30 25 40;
+    --primary: 176 196 177; /* B0C4B1 */
+    --primary-foreground: 74 87 89;
 
-    --secondary: 55 48 70;
-    --secondary-foreground: 245 240 250;
+    --secondary: 105 125 128; /* Variação do 4A5759 */
+    --secondary-foreground: 247 225 215;
 
-    --muted: 55 48 70;
-    --muted-foreground: 178 163 195;
+    --muted: 90 105 108;
+    --muted-foreground: 222 189 210;
 
-    --accent: 60 50 75;
-    --accent-foreground: 245 240 250;
+    --accent: 237 175 184; /* EDAFB8 */
+    --accent-foreground: 74 87 89;
 
-    --destructive: 244 114 182;
-    --destructive-foreground: 30 25 40;
+    --destructive: 237 175 184;
+    --destructive-foreground: 74 87 89;
 
-    --border: 60 50 75;
-    --input: 60 50 75;
-    --ring: 196 181 253;
+    --border: 105 125 128;
+    --input: 105 125 128;
+    --ring: 176 196 177;
 
-    --sidebar-background: 40 35 50;
-    --sidebar-foreground: 245 240 250;
-    --sidebar-primary: 196 181 253;
-    --sidebar-primary-foreground: 30 25 40;
-    --sidebar-accent: 55 48 70;
-    --sidebar-accent-foreground: 245 240 250;
-    --sidebar-border: 60 50 75;
-    --sidebar-ring: 196 181 253;
+    --sidebar-background: 90 105 108;
+    --sidebar-foreground: 247 225 215;
+    --sidebar-primary: 176 196 177;
+    --sidebar-primary-foreground: 74 87 89;
+    --sidebar-accent: 105 125 128;
+    --sidebar-accent-foreground: 247 225 215;
+    --sidebar-border: 105 125 128;
+    --sidebar-ring: 176 196 177;
   }
 }
 
@@ -103,25 +105,24 @@
 
 @layer components {
   .btn-mode {
-    @apply bg-white hover:bg-purple-50 border-2 border-purple-200 hover:border-purple-300 
-           text-purple-800 hover:text-purple-900 rounded-2xl px-8 py-6 text-lg font-medium
+    @apply bg-white hover:bg-accent/20 border-2 border-accent/30 hover:border-accent/50 
+           text-foreground hover:text-accent-foreground rounded-2xl px-8 py-6 text-lg font-medium
            transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-[1.02]
-           dark:bg-gray-800 dark:hover:bg-purple-900/20 dark:border-purple-400 dark:hover:border-purple-300
-           dark:text-purple-200 dark:hover:text-purple-100;
+           dark:bg-card dark:hover:bg-accent/20 dark:border-accent/30 dark:hover:border-accent/50
+           dark:text-foreground dark:hover:text-accent-foreground;
   }
 
   .btn-mode.selected {
-    @apply bg-purple-400 border-purple-400 text-white shadow-lg transform scale-[1.02]
-           dark:bg-purple-500 dark:border-purple-500;
+    @apply bg-primary/80 border-primary text-primary-foreground shadow-lg transform scale-[1.02]
+           dark:bg-primary/80 dark:border-primary dark:text-primary-foreground;
   }
 
   .recipe-card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300
-           border border-purple-100 p-6 dark:bg-gray-800 dark:border-purple-700;
+    @apply bg-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300
+           border border-border p-6;
   }
 
   .nutrition-badge {
-    @apply bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium
-           dark:bg-purple-900 dark:text-purple-200;
+    @apply bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium;
   }
 }
