@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChefHat, ArrowLeft } from 'lucide-react';
@@ -73,100 +72,113 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-lilac-50 via-white to-lilac-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <ThemeToggle />
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <header className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <ChefHat className="h-8 w-8 text-lilac-600 dark:text-lilac-400" />
-            <h1 className="text-4xl md:text-5xl font-bold font-lato text-gray-900 dark:text-white">
-              Comida Simples
-            </h1>
-          </div>
-          {appState === 'home' && (
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Monte seu cardápio: selecione a base de cada almoço da semana ou gere uma sugestão instantânea. 
-              O Comida Simples faz o resto para você. 🍽️
-            </p>
-          )}
-        </header>
+    <div className="min-h-screen relative">
+      {/* Imagem de fundo com blur */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop&crop=center')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"></div>
+      </div>
 
-        {/* Contador de pessoas - visível em todas as telas exceto home */}
-        {appState !== 'home' && (
-          <div className="flex items-center justify-between mb-6">
-            <Button
-              onClick={goBack}
-              variant="outline"
-              className="flex items-center gap-2"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Voltar
-            </Button>
-            <PersonCounter count={personCount} onChange={setPersonCount} />
-          </div>
-        )}
+      {/* Conteúdo principal */}
+      <div className="relative z-10">
+        <ThemeToggle />
+        
+        <div className="container mx-auto px-4 py-8">
+          {/* Header */}
+          <header className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <ChefHat className="h-8 w-8 text-lilac-600 dark:text-lilac-400" />
+              <h1 className="text-4xl md:text-5xl font-bold font-lato text-gray-900 dark:text-white">
+                Comida Simples
+              </h1>
+            </div>
+            {appState === 'home' && (
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Monte seu cardápio: selecione a base de cada almoço da semana ou gere uma sugestão instantânea. 
+                O Comida Simples faz o resto para você. 🍽️
+              </p>
+            )}
+          </header>
 
-        {/* Conteúdo principal */}
-        <main className="flex flex-col items-center">
-          {appState === 'home' && (
-            <>
-              <div className="mb-8">
-                <PersonCounter count={personCount} onChange={setPersonCount} />
-              </div>
-              <ModeSelector 
-                selectedMode={selectedMode} 
-                onModeSelect={handleModeSelect} 
-              />
-            </>
-          )}
-
-          {appState === 'category-selection' && (
-            <CategorySelector
-              selectedCategory={selectedCategory}
-              onCategorySelect={handleCategorySelect}
-            />
-          )}
-
-          {appState === 'now-result' && currentRecipe && (
-            <div className="w-full max-w-4xl space-y-8">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold font-lato text-gray-900 dark:text-white mb-2">
-                  Sua Sugestão Para Agora! ⚡
-                </h2>
-                <Button
-                  onClick={generateNewRecipe}
-                  variant="outline"
-                  className="mb-4"
-                >
-                  🎲 Gerar Nova Sugestão
-                </Button>
-              </div>
-              
-              <RecipeCard recipe={currentRecipe} servings={personCount} />
-              <ShoppingList recipes={[currentRecipe]} servings={personCount} />
+          {/* Contador de pessoas - visível em todas as telas exceto home */}
+          {appState !== 'home' && (
+            <div className="flex items-center justify-between mb-6">
+              <Button
+                onClick={goBack}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Voltar
+              </Button>
+              <PersonCounter count={personCount} onChange={setPersonCount} />
             </div>
           )}
 
-          {appState === 'weekly-planning' && (
-            <WeeklyPlanner 
-              servings={personCount} 
-              onMenuGenerated={handleMenuGenerated} 
-            />
-          )}
+          {/* Conteúdo principal */}
+          <main className="flex flex-col items-center">
+            {appState === 'home' && (
+              <>
+                <div className="mb-8">
+                  <PersonCounter count={personCount} onChange={setPersonCount} />
+                </div>
+                <ModeSelector 
+                  selectedMode={selectedMode} 
+                  onModeSelect={handleModeSelect} 
+                />
+              </>
+            )}
 
-          {appState === 'weekly-result' && weeklyMenu && (
-            <WeeklyMenu menu={weeklyMenu} servings={personCount} />
-          )}
-        </main>
+            {appState === 'category-selection' && (
+              <CategorySelector
+                selectedCategory={selectedCategory}
+                onCategorySelect={handleCategorySelect}
+              />
+            )}
 
-        {/* Footer */}
-        <footer className="text-center mt-16 py-8 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
-            Feito com 💜 para simplificar sua cozinha
-          </p>
-        </footer>
+            {appState === 'now-result' && currentRecipe && (
+              <div className="w-full max-w-4xl space-y-8">
+                <div className="text-center mb-6">
+                  <h2 className="text-3xl font-bold font-lato text-gray-900 dark:text-white mb-2">
+                    Sua Sugestão Para Agora! ⚡
+                  </h2>
+                  <Button
+                    onClick={generateNewRecipe}
+                    variant="outline"
+                    className="mb-4"
+                  >
+                    🎲 Gerar Nova Sugestão
+                  </Button>
+                </div>
+                
+                <RecipeCard recipe={currentRecipe} servings={personCount} />
+                <ShoppingList recipes={[currentRecipe]} servings={personCount} />
+              </div>
+            )}
+
+            {appState === 'weekly-planning' && (
+              <WeeklyPlanner 
+                servings={personCount} 
+                onMenuGenerated={handleMenuGenerated} 
+              />
+            )}
+
+            {appState === 'weekly-result' && weeklyMenu && (
+              <WeeklyMenu menu={weeklyMenu} servings={personCount} />
+            )}
+          </main>
+
+          {/* Footer */}
+          <footer className="text-center mt-16 py-8 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              Feito com 💜 para simplificar sua cozinha
+            </p>
+          </footer>
+        </div>
       </div>
     </div>
   );

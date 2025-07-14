@@ -39,6 +39,15 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
 
   return (
     <div className="recipe-card animate-fade-in">
+      {/* Imagem do prato */}
+      <div className="mb-6 rounded-lg overflow-hidden">
+        <img 
+          src={recipe.image} 
+          alt={recipe.name}
+          className="w-full h-48 md:h-64 object-cover transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+
       {/* Header do cartão */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
