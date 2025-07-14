@@ -3,10 +3,21 @@ export type RecipeCategory = 'carne' | 'frango' | 'peixe' | 'vegetariano' | 'veg
 
 export type RecipeDifficulty = 'fácil' | 'médio' | 'difícil';
 
+export type IngredientCategory = 'proteina' | 'carboidrato' | 'vegetal' | 'tempero' | 'outros';
+
 export interface Ingredient {
   name: string;
   amount: number;
   unit: string;
+  category: IngredientCategory;
+}
+
+export interface ShoppingListItem {
+  name: string;
+  amount: number;
+  unit: string;
+  category: IngredientCategory;
+  checked: boolean;
 }
 
 export interface NutritionalInfo {
@@ -29,11 +40,15 @@ export interface Recipe {
   nutritionalInfo: NutritionalInfo;
 }
 
+export interface WeeklyMenu {
+  monday: Recipe;
+  tuesday: Recipe;
+  wednesday: Recipe;
+  thursday: Recipe;
+  friday: Recipe;
+}
+
 export interface DayMenu {
   day: string;
   recipe: Recipe;
-}
-
-export interface WeeklyMenu {
-  days: DayMenu[];
 }

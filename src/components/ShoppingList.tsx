@@ -33,7 +33,7 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
             name: ingredient.name,
             amount: adjustedAmount,
             unit: ingredient.unit,
-            category: ingredient.category || 'outros',
+            category: ingredient.category,
             checked: false
           });
         }

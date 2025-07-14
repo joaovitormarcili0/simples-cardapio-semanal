@@ -31,7 +31,7 @@ const WeeklyMenu = ({ menu, servings }: WeeklyMenuProps) => {
       {/* Lista de compras */}
       <div className="mb-8">
         <ShoppingList 
-          recipes={Object.values(menu)} 
+          recipes={[menu.monday, menu.tuesday, menu.wednesday, menu.thursday, menu.friday]} 
           servings={servings} 
           isWeekly={true}
         />
