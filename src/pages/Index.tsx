@@ -5,18 +5,20 @@ import { ChefHat, ArrowLeft } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeToggle';
 import PersonCounter from '@/components/PersonCounter';
 import ModeSelector from '@/components/ModeSelector';
+import CategorySelector from '@/components/CategorySelector';
 import RecipeCard from '@/components/RecipeCard';
 import WeeklyPlanner from '@/components/WeeklyPlanner';
 import WeeklyMenu from '@/components/WeeklyMenu';
 import ShoppingList from '@/components/ShoppingList';
-import { getRandomRecipe } from '@/data/recipes';
-import { Recipe, WeeklyMenu as WeeklyMenuType } from '@/types/recipe';
+import { getRandomRecipe, getRandomRecipeByCategory } from '@/data/recipes';
+import { Recipe, WeeklyMenu as WeeklyMenuType, RecipeCategory } from '@/types/recipe';
 
-type AppState = 'home' | 'now-result' | 'weekly-planning' | 'weekly-result';
+type AppState = 'home' | 'category-selection' | 'now-result' | 'weekly-planning' | 'weekly-result';
 
 const Index = () => {
   const [appState, setAppState] = useState<AppState>('home');
   const [selectedMode, setSelectedMode] = useState<'now' | 'weekly' | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<RecipeCategory | null>(null);
   const [personCount, setPersonCount] = useState(1);
   const [currentRecipe, setCurrentRecipe] = useState<Recipe | null>(null);
   const [weeklyMenu, setWeeklyMenu] = useState<WeeklyMenuType | null>(null);
@@ -25,14 +27,20 @@ const Index = () => {
     setSelectedMode(mode);
     
     if (mode === 'now') {
-      // Gerar receita aleatória instantaneamente
-      const recipe = getRandomRecipe();
-      setCurrentRecipe(recipe);
-      setAppState('now-result');
+      // Ir para seleção de categoria
+      setAppState('category-selection');
     } else {
       // Ir para o planejador semanal
       setAppState('weekly-planning');
     }
+  };
+
+  const handleCategorySelect = (category: RecipeCategory) => {
+    setSelectedCategory(category);
+    // Gerar receita da categoria selecionada
+    const recipe = getRandomRecipeByCategory(category);
+    setCurrentRecipe(recipe);
+    setAppState('now-result');
   };
 
   const handleMenuGenerated = (menu: WeeklyMenuType) => {
@@ -41,7 +49,11 @@ const Index = () => {
   };
 
   const goBack = () => {
-    if (appState === 'weekly-planning') {
+    if (appState === 'category-selection') {
+      setAppState('home');
+      setSelectedMode(null);
+      setSelectedCategory(null);
+    } else if (appState === 'weekly-planning') {
       setAppState('home');
       setSelectedMode(null);
     } else if (appState === 'now-result' || appState === 'weekly-result') {
@@ -49,12 +61,15 @@ const Index = () => {
       setSelectedMode(null);
       setCurrentRecipe(null);
       setWeeklyMenu(null);
+      setSelectedCategory(null);
     }
   };
 
   const generateNewRecipe = () => {
-    const recipe = getRandomRecipe();
-    setCurrentRecipe(recipe);
+    if (selectedCategory) {
+      const recipe = getRandomRecipeByCategory(selectedCategory);
+      setCurrentRecipe(recipe);
+    }
   };
 
   return (
@@ -78,7 +93,7 @@ const Index = () => {
           )}
         </header>
 
-        {/* Contador de pessoas - visível em todas as telas */}
+        {/* Contador de pessoas - visível em todas as telas exceto home */}
         {appState !== 'home' && (
           <div className="flex items-center justify-between mb-6">
             <Button
@@ -105,6 +120,13 @@ const Index = () => {
                 onModeSelect={handleModeSelect} 
               />
             </>
+          )}
+
+          {appState === 'category-selection' && (
+            <CategorySelector
+              selectedCategory={selectedCategory}
+              onCategorySelect={handleCategorySelect}
+            />
           )}
 
           {appState === 'now-result' && currentRecipe && (
