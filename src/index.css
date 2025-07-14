@@ -1,96 +1,89 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Definition of the design system for Comida Simples */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 250 250 250;
+    --foreground: 27 27 27;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 255 255 255;
+    --card-foreground: 27 27 27;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 255 255 255;
+    --popover-foreground: 27 27 27;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 124 42 227;
+    --primary-foreground: 255 255 255;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 243 236 255;
+    --secondary-foreground: 87 32 156;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 248 245 255;
+    --muted-foreground: 115 115 115;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 233 221 255;
+    --accent-foreground: 87 32 156;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 229 229 229;
+    --input: 229 229 229;
+    --ring: 160 101 255;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 255 255 255;
+    --sidebar-foreground: 27 27 27;
+    --sidebar-primary: 124 42 227;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 248 245 255;
+    --sidebar-accent-foreground: 87 32 156;
+    --sidebar-border: 229 229 229;
+    --sidebar-ring: 160 101 255;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 15 15 15;
+    --foreground: 245 245 245;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 24 24 24;
+    --card-foreground: 245 245 245;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 24 24 24;
+    --popover-foreground: 245 245 245;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 160 101 255;
+    --primary-foreground: 15 15 15;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 39 39 42;
+    --secondary-foreground: 245 245 245;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 39 39 42;
+    --muted-foreground: 163 163 163;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 39 39 42;
+    --accent-foreground: 245 245 245;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 220 38 38;
+    --destructive-foreground: 245 245 245;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 160 101 255;
+
+    --sidebar-background: 24 24 24;
+    --sidebar-foreground: 245 245 245;
+    --sidebar-primary: 160 101 255;
+    --sidebar-primary-foreground: 15 15 15;
+    --sidebar-accent: 39 39 42;
+    --sidebar-accent-foreground: 245 245 245;
+    --sidebar-border: 39 39 42;
+    --sidebar-ring: 160 101 255;
   }
 }
 
@@ -100,6 +93,35 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-open-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-lato;
+  }
+}
+
+@layer components {
+  .btn-mode {
+    @apply bg-white hover:bg-lilac-50 border-2 border-lilac-200 hover:border-lilac-300 
+           text-lilac-800 hover:text-lilac-900 rounded-2xl px-8 py-6 text-lg font-medium
+           transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-[1.02]
+           dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-lilac-400 dark:hover:border-lilac-300
+           dark:text-lilac-200 dark:hover:text-lilac-100;
+  }
+
+  .btn-mode.selected {
+    @apply bg-lilac-500 border-lilac-500 text-white shadow-lg transform scale-[1.02]
+           dark:bg-lilac-600 dark:border-lilac-600;
+  }
+
+  .recipe-card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300
+           border border-gray-100 p-6 dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .nutrition-badge {
+    @apply bg-lilac-100 text-lilac-800 px-3 py-1 rounded-full text-sm font-medium
+           dark:bg-lilac-900 dark:text-lilac-200;
   }
 }
