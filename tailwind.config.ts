@@ -57,13 +57,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom colors based on the palette
-				pastel: {
-					pink: '#EDAFB8',
-					cream: '#F7E1D7', 
-					beige: '#DEDBD2',
-					sage: '#B0C4B1',
-					slate: '#4A5759'
+				// Custom colors for Comida Simples
+				lilac: {
+					50: '#faf7ff',
+					100: '#f3ecff',
+					200: '#e9ddff',
+					300: '#d6c1ff',
+					400: '#bc95ff',
+					500: '#a065ff',
+					600: '#8b42f7',
+					700: '#7c2ae3',
+					800: '#6824bf',
+					900: '#57209c',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

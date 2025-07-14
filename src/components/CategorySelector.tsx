@@ -17,7 +17,7 @@ const CategorySelector = ({ selectedCategory, onCategorySelect }: CategorySelect
 
   return (
     <div className="w-full max-w-3xl">
-      <h3 className="text-2xl font-bold font-lato text-foreground mb-6 text-center">
+      <h3 className="text-2xl font-bold font-lato text-gray-900 dark:text-white mb-6 text-center">
         Escolha sua proteína preferida:
       </h3>
       
@@ -28,12 +28,12 @@ const CategorySelector = ({ selectedCategory, onCategorySelect }: CategorySelect
             onClick={() => onCategorySelect(category.id as RecipeCategory)}
             className={`p-4 rounded-xl border-2 transition-all duration-200 hover:scale-105 ${
               selectedCategory === category.id
-                ? 'border-primary bg-primary/10 shadow-lg'
-                : 'border-border bg-card hover:border-accent hover:bg-accent/10'
+                ? 'border-lilac-500 bg-lilac-50 dark:bg-lilac-900/20 shadow-lg'
+                : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-lilac-300 dark:hover:border-lilac-600'
             }`}
           >
             <div className="text-2xl mb-2">{category.emoji}</div>
-            <div className="text-sm font-medium text-card-foreground">
+            <div className="text-sm font-medium text-gray-900 dark:text-white">
               {category.name}
             </div>
           </button>
