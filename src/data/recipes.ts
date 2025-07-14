@@ -1,4 +1,3 @@
-
 import { Recipe, RecipeCategory } from '@/types/recipe';
 
 export const recipes: Recipe[] = [
@@ -6,7 +5,6 @@ export const recipes: Recipe[] = [
     id: 'arroz-feijao-bife',
     name: 'Arroz, Feijão e Bife Grelhado',
     category: 'carne',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Arroz branco', amount: 100, unit: 'g', category: 'carboidrato' },
       { name: 'Feijão carioca', amount: 80, unit: 'g', category: 'proteina' },
@@ -40,7 +38,6 @@ export const recipes: Recipe[] = [
     id: 'frango-legumes',
     name: 'Frango Assado com Legumes',
     category: 'frango',
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Peito de frango', amount: 150, unit: 'g', category: 'proteina' },
       { name: 'Batata doce', amount: 200, unit: 'g', category: 'carboidrato' },
@@ -74,7 +71,6 @@ export const recipes: Recipe[] = [
     id: 'salmao-quinoa',
     name: 'Salmão Grelhado com Quinoa',
     category: 'peixe',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Filé de salmão', amount: 150, unit: 'g', category: 'proteina' },
       { name: 'Quinoa', amount: 80, unit: 'g', category: 'carboidrato' },
@@ -108,7 +104,6 @@ export const recipes: Recipe[] = [
     id: 'lasanha-berinjela',
     name: 'Lasanha de Berinjela',
     category: 'vegetariano',
-    image: 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Berinjela', amount: 300, unit: 'g', category: 'vegetal' },
       { name: 'Molho de tomate', amount: 200, unit: 'ml', category: 'outros' },
@@ -142,7 +137,6 @@ export const recipes: Recipe[] = [
     id: 'curry-grao-bico',
     name: 'Curry de Grão-de-bico',
     category: 'vegano',
-    image: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Grão-de-bico', amount: 150, unit: 'g', category: 'proteina' },
       { name: 'Leite de coco', amount: 200, unit: 'ml', category: 'outros' },
@@ -177,7 +171,6 @@ export const recipes: Recipe[] = [
     id: 'picanha-mandioca',
     name: 'Picanha com Mandioca',
     category: 'carne',
-    image: 'https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Picanha', amount: 180, unit: 'g', category: 'proteina' },
       { name: 'Mandioca', amount: 200, unit: 'g', category: 'carboidrato' },
@@ -208,7 +201,6 @@ export const recipes: Recipe[] = [
     id: 'strogonoff-frango',
     name: 'Strogonoff de Frango',
     category: 'frango',
-    image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Peito de frango', amount: 200, unit: 'g', category: 'proteina' },
       { name: 'Arroz branco', amount: 100, unit: 'g', category: 'carboidrato' },
@@ -242,7 +234,6 @@ export const recipes: Recipe[] = [
     id: 'peixe-banana',
     name: 'Peixe com Banana da Terra',
     category: 'peixe',
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Filé de pescada', amount: 150, unit: 'g', category: 'proteina' },
       { name: 'Banana da terra', amount: 150, unit: 'g', category: 'carboidrato' },
@@ -274,7 +265,6 @@ export const recipes: Recipe[] = [
     id: 'omelete-legumes',
     name: 'Omelete com Legumes',
     category: 'vegetariano',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Ovos', amount: 150, unit: 'g', category: 'proteina' },
       { name: 'Pão integral', amount: 60, unit: 'g', category: 'carboidrato' },
@@ -307,7 +297,6 @@ export const recipes: Recipe[] = [
     id: 'bowl-quinoa-vegano',
     name: 'Bowl de Quinoa Vegano',
     category: 'vegano',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&h=600&fit=crop&crop=center',
     ingredients: [
       { name: 'Quinoa', amount: 100, unit: 'g', category: 'carboidrato' },
       { name: 'Feijão preto', amount: 80, unit: 'g', category: 'proteina' },
@@ -339,20 +328,15 @@ export const recipes: Recipe[] = [
   }
 ];
 
-// Função para obter receitas por categoria
 export const getRecipesByCategory = (category: RecipeCategory): Recipe[] => {
   return recipes.filter(recipe => recipe.category === category);
 };
 
-// Função para obter uma receita aleatória
 export const getRandomRecipe = (): Recipe => {
-  const randomIndex = Math.floor(Math.random() * recipes.length);
-  return recipes[randomIndex];
+  return recipes[Math.floor(Math.random() * recipes.length)];
 };
 
-// Função para obter uma receita aleatória por categoria
 export const getRandomRecipeByCategory = (category: RecipeCategory): Recipe => {
   const categoryRecipes = getRecipesByCategory(category);
-  const randomIndex = Math.floor(Math.random() * categoryRecipes.length);
-  return categoryRecipes[randomIndex];
+  return categoryRecipes[Math.floor(Math.random() * categoryRecipes.length)];
 };

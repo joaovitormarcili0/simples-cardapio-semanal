@@ -72,18 +72,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen relative">
-      {/* Imagem de fundo com blur */}
-      <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&h=1080&fit=crop&crop=center')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"></div>
-      </div>
-
-      {/* Conteúdo principal */}
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900">
       <div className="relative z-10">
         <ThemeToggle />
         
