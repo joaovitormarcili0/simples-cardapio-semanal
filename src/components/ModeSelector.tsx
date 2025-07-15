@@ -9,7 +9,7 @@ const ModeSelector = ({
 }: ModeSelectorProps) => {
   return <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
       <button onClick={() => onModeSelect('now')} className={`btn-mode ${selectedMode === 'now' ? 'selected' : ''} flex flex-col items-center gap-4`}>
-        <Clock className="h-12 w-12 bg-amber-50" />
+        <Clock className="h-12 w-12 bg-transparent" />
         <div className="text-center">
           <h3 className="text-xl font-bold font-lato mb-2">Para Agora</h3>
           <p className="text-sm opacity-80">
