@@ -3,51 +3,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Sistema de design com paleta pastel para Comida Simples */
+/* Sistema de design com paleta pastel suave para Comida Simples */
 
 @layer base {
   :root {
-    --background: 31 24 13; /* #FFF8F1 convertido para HSL */
-    --foreground: 0 0 22; /* #3A3A3A convertido para HSL */
+    /* Light Mode - Tons pastéis suaves */
+    --background: 31 42 97; /* #FFF8F1 convertido para HSL */
+    --foreground: 0 0 23; /* #3A3A3A convertido para HSL */
 
-    --card: 0 0 100; /* branco para cards */
-    --card-foreground: 0 0 22;
+    --card: 0 0 100; /* #FFFFFF */
+    --card-foreground: 0 0 23;
 
     --popover: 0 0 100;
-    --popover-foreground: 0 0 22;
+    --popover-foreground: 0 0 23;
 
-    --primary: 262 74 72; /* #B388EB convertido para HSL */
+    --primary: 262 52 73; /* #B388EB - lilás pastel */
     --primary-foreground: 0 0 100;
 
-    --secondary: 32 100 89; /* #FFD6A5 convertido para HSL */
-    --secondary-foreground: 0 0 22;
+    --secondary: 32 100 89; /* #FFD6A5 - pêssego pastel */
+    --secondary-foreground: 0 0 23;
 
-    --muted: 31 24 97; /* tom mais claro do background */
+    --muted: 32 29 95; /* #FAF3EB - tom mais claro do background */
     --muted-foreground: 0 0 45;
 
-    --accent: 120 100 90; /* #CAFFBF convertido para HSL */
-    --accent-foreground: 0 0 22;
+    --accent: 210 100 82; /* #A0C4FF - azul pastel */
+    --accent-foreground: 0 0 23;
 
     --destructive: 0 84 60;
     --destructive-foreground: 0 0 100;
 
-    --border: 32 35 92;
-    --input: 32 35 92;
-    --ring: 262 74 72;
+    --border: 32 29 90; /* tom suave para bordas */
+    --input: 32 29 90;
+    --ring: 262 52 73;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0 100;
-    --sidebar-foreground: 0 0 22;
-    --sidebar-primary: 262 74 72;
+    --sidebar-foreground: 0 0 23;
+    --sidebar-primary: 262 52 73;
     --sidebar-primary-foreground: 0 0 100;
-    --sidebar-accent: 31 24 97;
-    --sidebar-accent-foreground: 0 0 22;
-    --sidebar-border: 32 35 92;
-    --sidebar-ring: 262 74 72;
+    --sidebar-accent: 32 29 95;
+    --sidebar-accent-foreground: 0 0 23;
+    --sidebar-border: 32 29 90;
+    --sidebar-ring: 262 52 73;
   }
 
   .dark {
+    /* Dark Mode - Tons pastéis escuros aconchegantes */
     --background: 251 25 15; /* #1E1B2E convertido para HSL */
     --foreground: 29 14 95; /* #F2E9E4 convertido para HSL */
 
@@ -57,16 +59,16 @@
     --popover: 251 25 20;
     --popover-foreground: 29 14 95;
 
-    --primary: 204 100 87; /* #BDE0FE convertido para HSL */
+    --primary: 204 100 87; /* #BDE0FE - azul pastel claro */
     --primary-foreground: 251 25 15;
 
-    --secondary: 0 100 90; /* #FFCBCB convertido para HSL */
+    --secondary: 0 100 90; /* #FFCBCB - rosa pastel */
     --secondary-foreground: 251 25 15;
 
     --muted: 251 25 25;
     --muted-foreground: 29 14 75;
 
-    --accent: 204 100 87;
+    --accent: 38 100 87; /* #FFDEB4 - pêssego pastel claro */
     --accent-foreground: 251 25 15;
 
     --destructive: 0 62 64;
@@ -104,14 +106,14 @@
 @layer components {
   .btn-mode {
     @apply bg-card hover:bg-accent/20 border-2 border-muted 
-           hover:border-primary/30 text-foreground hover:text-primary
+           hover:border-primary/40 text-foreground hover:text-primary
            rounded-2xl px-8 py-6 text-lg font-medium
            transition-all duration-200 shadow-sm hover:shadow-md 
            transform hover:scale-[1.02];
   }
 
   .btn-mode.selected {
-    @apply bg-primary border-primary text-primary-foreground 
+    @apply bg-primary/10 border-primary text-primary 
            shadow-lg transform scale-[1.02];
   }
 
@@ -121,8 +123,8 @@
   }
 
   .nutrition-badge {
-    @apply bg-secondary/30 text-foreground px-3 py-1 rounded-full 
-           text-sm font-medium border border-secondary/50;
+    @apply bg-accent/20 text-foreground px-3 py-1 rounded-full 
+           text-sm font-medium border border-accent/30;
   }
 
   .category-button {
@@ -141,7 +143,17 @@
   }
 
   .counter-button {
-    @apply h-8 w-8 rounded-full border-primary/30 hover:bg-primary/10 
-           hover:border-primary/60 disabled:opacity-50;
+    @apply h-10 w-10 rounded-full bg-primary/10 border border-primary/30 
+           hover:bg-primary/20 hover:border-primary/60 disabled:opacity-50
+           text-primary hover:text-primary transition-all duration-200;
+  }
+
+  .select-trigger {
+    @apply bg-card border-border hover:bg-accent/10 
+           focus:ring-2 focus:ring-primary/20 focus:border-primary/40;
+  }
+
+  .select-content {
+    @apply bg-card border-border shadow-lg;
   }
 }

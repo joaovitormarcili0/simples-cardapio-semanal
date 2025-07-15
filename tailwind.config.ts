@@ -57,19 +57,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Paleta pastel personalizada
+				// Paleta pastel adicional para casos específicos
 				pastel: {
-					cream: '#FFF8F1',
-					purple: '#B388EB',
-					orange: '#FFD6A5',
+					pink: '#FFADAD',
 					green: '#CAFFBF',
-					blue: '#A0C4FF',
-					pink: '#FFCBCB',
-					'light-blue': '#BDE0FE',
+					mint: '#D0F4DE',
+					blue: '#A3C4F3',
+					purple: '#D5AAFF',
+					peach: '#FFD6A5',
+					cream: '#FFF8F1',
 					'dark-bg': '#1E1B2E',
 					'dark-card': '#2A243A',
-					'dark-text': '#F2E9E4',
-					'light-text': '#3A3A3A'
+					'dark-text': '#F2E9E4'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -86,6 +85,10 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				'soft': '0 2px 8px rgba(0, 0, 0, 0.06)',
+				'soft-lg': '0 4px 16px rgba(0, 0, 0, 0.08)',
 			},
 			keyframes: {
 				'accordion-down': {
