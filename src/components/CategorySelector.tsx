@@ -12,7 +12,8 @@ const CategorySelector = ({ selectedCategory, onCategorySelect }: CategorySelect
     { id: 'frango', name: 'Frango', emoji: '🍗' },
     { id: 'peixe', name: 'Peixe', emoji: '🐟' },
     { id: 'vegetariano', name: 'Vegetariano', emoji: '🥬' },
-    { id: 'vegano', name: 'Vegano', emoji: '🌱' }
+    { id: 'vegano', name: 'Vegano', emoji: '🌱' },
+    { id: 'fit', name: 'Fit', emoji: '💪' }
   ];
 
   return (
@@ -21,7 +22,7 @@ const CategorySelector = ({ selectedCategory, onCategorySelect }: CategorySelect
         Escolha sua proteína preferida:
       </h3>
       
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {categories.map((category) => (
           <button
             key={category.id}

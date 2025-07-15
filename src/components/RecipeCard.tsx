@@ -1,4 +1,3 @@
-
 import { Clock, Users, TrendingUp } from 'lucide-react';
 import { Recipe } from '@/types/recipe';
 
@@ -27,7 +26,8 @@ const RecipeCard = ({ recipe, servings }: RecipeCardProps) => {
     frango: '🍗',
     peixe: '🐟',
     vegetariano: '🥬',
-    vegano: '🌱'
+    vegano: '🌱',
+    fit: '💪'
   };
 
   const difficultyColors = {

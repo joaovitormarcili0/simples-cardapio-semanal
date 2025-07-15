@@ -1,5 +1,4 @@
-
-export type RecipeCategory = 'carne' | 'frango' | 'peixe' | 'vegetariano' | 'vegano';
+export type RecipeCategory = 'carne' | 'frango' | 'peixe' | 'vegetariano' | 'vegano' | 'fit';
 
 export type RecipeDifficulty = 'fácil' | 'médio' | 'difícil';
 

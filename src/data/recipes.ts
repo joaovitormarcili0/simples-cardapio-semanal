@@ -1,4 +1,3 @@
-
 import { Recipe, RecipeCategory } from '@/types/recipe';
 
 export const recipes: Recipe[] = [
@@ -1646,6 +1645,335 @@ export const recipes: Recipe[] = [
       fiber: 8
     },
     prepTime: 20,
+    difficulty: 'fácil',
+    servings: 1
+  },
+
+  // ===== RECEITAS FIT (10 receitas de baixa caloria) =====
+  {
+    id: 'salada-atum-fit',
+    name: 'Salada de Atum Light',
+    category: 'fit',
+    ingredients: [
+      { name: 'Atum em água', amount: 100, unit: 'g', category: 'proteina' },
+      { name: 'Alface americana', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate cereja', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Pepino', amount: 50, unit: 'g', category: 'vegetal' },
+      { name: 'Cenoura ralada', amount: 40, unit: 'g', category: 'vegetal' },
+      { name: 'Azeite extra virgem', amount: 5, unit: 'ml', category: 'outros' },
+      { name: 'Limão', amount: 15, unit: 'ml', category: 'tempero' },
+      { name: 'Sal', amount: 1, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Escorra bem o atum e desfie com um garfo',
+      'Lave e corte todos os vegetais em pedaços pequenos',
+      'Monte a salada em um prato fundo',
+      'Tempere com azeite, limão e sal',
+      'Misture delicadamente e sirva imediatamente'
+    ],
+    nutritionalInfo: {
+      calories: 180,
+      protein: 22,
+      carbs: 8,
+      fat: 6,
+      fiber: 4
+    },
+    prepTime: 10,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'omelete-claras-fit',
+    name: 'Omelete de Claras com Espinafre',
+    category: 'fit',
+    ingredients: [
+      { name: 'Claras de ovo', amount: 120, unit: 'g', category: 'proteina' },
+      { name: 'Espinafre fresco', amount: 100, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Cebola', amount: 30, unit: 'g', category: 'vegetal' },
+      { name: 'Queijo cottage', amount: 50, unit: 'g', category: 'proteina' },
+      { name: 'Azeite spray', amount: 2, unit: 'ml', category: 'outros' },
+      { name: 'Orégano', amount: 1, unit: 'g', category: 'tempero' },
+      { name: 'Sal', amount: 1, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Refogue a cebola com azeite spray até dourar',
+      'Adicione o espinafre e tomate, cozinhe até murchar',
+      'Bata as claras com sal e orégano',
+      'Despeje as claras na frigideira antiaderente',
+      'Adicione o refogado e cottage por cima',
+      'Dobre a omelete e sirva quente'
+    ],
+    nutritionalInfo: {
+      calories: 160,
+      protein: 20,
+      carbs: 6,
+      fat: 4,
+      fiber: 3
+    },
+    prepTime: 15,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'frango-grelhado-fit',
+    name: 'Peito de Frango Grelhado com Legumes',
+    category: 'fit',
+    ingredients: [
+      { name: 'Peito de frango', amount: 120, unit: 'g', category: 'proteina' },
+      { name: 'Abobrinha', amount: 100, unit: 'g', category: 'vegetal' },
+      { name: 'Brócolis', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Cenoura', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Alho', amount: 3, unit: 'g', category: 'tempero' },
+      { name: 'Limão', amount: 20, unit: 'ml', category: 'tempero' },
+      { name: 'Azeite', amount: 5, unit: 'ml', category: 'outros' },
+      { name: 'Ervas finas', amount: 2, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Tempere o frango com limão, ervas e sal',
+      'Grelhe o frango em frigideira antiaderente por 6 minutos cada lado',
+      'Corte os legumes em pedaços médios',
+      'Refogue os legumes com alho e azeite',
+      'Cozinhe no vapor por 8-10 minutos',
+      'Sirva o frango fatiado com os legumes'
+    ],
+    nutritionalInfo: {
+      calories: 220,
+      protein: 28,
+      carbs: 10,
+      fat: 6,
+      fiber: 5
+    },
+    prepTime: 25,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'sopa-legumes-fit',
+    name: 'Sopa Detox de Legumes',
+    category: 'fit',
+    ingredients: [
+      { name: 'Abobrinha', amount: 100, unit: 'g', category: 'vegetal' },
+      { name: 'Couve-flor', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Cebola', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Alho', amount: 5, unit: 'g', category: 'tempero' },
+      { name: 'Caldo de legumes', amount: 400, unit: 'ml', category: 'outros' },
+      { name: 'Gengibre', amount: 3, unit: 'g', category: 'tempero' },
+      { name: 'Salsinha', amount: 5, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Refogue cebola e alho até dourar',
+      'Adicione todos os legumes cortados em cubos',
+      'Acrescente o caldo e gengibre',
+      'Cozinhe por 20 minutos até os legumes ficarem macios',
+      'Bata metade da sopa no liquidificador se desejar',
+      'Finalize com salsinha picada'
+    ],
+    nutritionalInfo: {
+      calories: 95,
+      protein: 4,
+      carbs: 18,
+      fat: 1,
+      fiber: 6
+    },
+    prepTime: 30,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'peixe-papillote-fit',
+    name: 'Peixe no Papillote Light',
+    category: 'fit',
+    ingredients: [
+      { name: 'Filé de tilápia', amount: 150, unit: 'g', category: 'proteina' },
+      { name: 'Abobrinha', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Cebola', amount: 40, unit: 'g', category: 'vegetal' },
+      { name: 'Limão', amount: 20, unit: 'ml', category: 'tempero' },
+      { name: 'Azeite', amount: 5, unit: 'ml', category: 'outros' },
+      { name: 'Tomilho', amount: 1, unit: 'g', category: 'tempero' },
+      { name: 'Sal', amount: 1, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Corte os legumes em fatias finas',
+      'Tempere o peixe com limão, tomilho e sal',
+      'Monte o papillote com papel alumínio',
+      'Coloque o peixe sobre os legumes',
+      'Regue com azeite e feche bem o papillote',
+      'Asse por 15 minutos a 180°C'
+    ],
+    nutritionalInfo: {
+      calories: 200,
+      protein: 30,
+      carbs: 8,
+      fat: 5,
+      fiber: 3
+    },
+    prepTime: 20,
+    difficulty: 'médio',
+    servings: 1
+  },
+  {
+    id: 'iogurte-bowl-fit',
+    name: 'Bowl de Iogurte com Frutas',
+    category: 'fit',
+    ingredients: [
+      { name: 'Iogurte grego desnatado', amount: 150, unit: 'g', category: 'proteina' },
+      { name: 'Morango', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Mirtilo', amount: 40, unit: 'g', category: 'vegetal' },
+      { name: 'Granola light', amount: 20, unit: 'g', category: 'carboidrato' },
+      { name: 'Chia', amount: 5, unit: 'g', category: 'outros' },
+      { name: 'Mel', amount: 10, unit: 'ml', category: 'outros' },
+      { name: 'Hortelã', amount: 2, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Coloque o iogurte em uma tigela',
+      'Corte os morangos em fatias',
+      'Distribua as frutas sobre o iogurte',
+      'Polvilhe a granola e chia por cima',
+      'Regue com mel',
+      'Decore com folhas de hortelã'
+    ],
+    nutritionalInfo: {
+      calories: 250,
+      protein: 18,
+      carbs: 30,
+      fat: 4,
+      fiber: 6
+    },
+    prepTime: 5,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'wrap-light-fit',
+    name: 'Wrap Light de Frango',
+    category: 'fit',
+    ingredients: [
+      { name: 'Tortilla integral pequena', amount: 50, unit: 'g', category: 'carboidrato' },
+      { name: 'Peito de frango cozido', amount: 80, unit: 'g', category: 'proteina' },
+      { name: 'Alface', amount: 40, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate', amount: 50, unit: 'g', category: 'vegetal' },
+      { name: 'Pepino', amount: 40, unit: 'g', category: 'vegetal' },
+      { name: 'Iogurte grego', amount: 30, unit: 'g', category: 'proteina' },
+      { name: 'Mostarda dijon', amount: 5, unit: 'ml', category: 'tempero' },
+      { name: 'Limão', amount: 10, unit: 'ml', category: 'tempero' }
+    ],
+    instructions: [
+      'Desfie o frango e tempere com limão',
+      'Misture iogurte com mostarda',
+      'Corte os vegetais em tiras finas',
+      'Espalhe o molho sobre a tortilla',
+      'Distribua o frango e vegetais',
+      'Enrole firmemente e corte ao meio'
+    ],
+    nutritionalInfo: {
+      calories: 280,
+      protein: 25,
+      carbs: 25,
+      fat: 6,
+      fiber: 4
+    },
+    prepTime: 10,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'quinoa-salada-fit',
+    name: 'Salada de Quinoa Colorida',
+    category: 'fit',
+    ingredients: [
+      { name: 'Quinoa cozida', amount: 80, unit: 'g', category: 'carboidrato' },
+      { name: 'Pepino', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate cereja', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Pimentão amarelo', amount: 50, unit: 'g', category: 'vegetal' },
+      { name: 'Cebola roxa', amount: 30, unit: 'g', category: 'vegetal' },
+      { name: 'Azeite', amount: 8, unit: 'ml', category: 'outros' },
+      { name: 'Limão', amount: 15, unit: 'ml', category: 'tempero' },
+      { name: 'Hortelã', amount: 3, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Deixe a quinoa esfriar completamente',
+      'Corte todos os vegetais em cubos pequenos',
+      'Misture a quinoa com os vegetais',
+      'Tempere com azeite, limão e sal',
+      'Adicione a hortelã picada',
+      'Deixe na geladeira por 30 minutos antes de servir'
+    ],
+    nutritionalInfo: {
+      calories: 220,
+      protein: 8,
+      carbs: 32,
+      fat: 7,
+      fiber: 5
+    },
+    prepTime: 15,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'smoothie-verde-fit',
+    name: 'Smoothie Verde Detox',
+    category: 'fit',
+    ingredients: [
+      { name: 'Espinafre baby', amount: 50, unit: 'g', category: 'vegetal' },
+      { name: 'Banana', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Maçã verde', amount: 100, unit: 'g', category: 'vegetal' },
+      { name: 'Água de coco', amount: 200, unit: 'ml', category: 'outros' },
+      { name: 'Gengibre', amount: 3, unit: 'g', category: 'tempero' },
+      { name: 'Limão', amount: 15, unit: 'ml', category: 'tempero' },
+      { name: 'Hortelã', amount: 5, unit: 'g', category: 'tempero' }
+    ],
+    instructions: [
+      'Lave bem o espinafre e as frutas',
+      'Descasque a banana e corte em pedaços',
+      'Corte a maçã retirando o caroço',
+      'Bata todos os ingredientes no liquidificador',
+      'Adicione gelo se desejar',
+      'Sirva imediatamente'
+    ],
+    nutritionalInfo: {
+      calories: 120,
+      protein: 3,
+      carbs: 28,
+      fat: 1,
+      fiber: 5
+    },
+    prepTime: 5,
+    difficulty: 'fácil',
+    servings: 1
+  },
+  {
+    id: 'cogumelos-grelhados-fit',
+    name: 'Cogumelos Grelhados com Ervas',
+    category: 'fit',
+    ingredients: [
+      { name: 'Cogumelo portobello', amount: 200, unit: 'g', category: 'vegetal' },
+      { name: 'Rúcula', amount: 60, unit: 'g', category: 'vegetal' },
+      { name: 'Tomate cereja', amount: 80, unit: 'g', category: 'vegetal' },
+      { name: 'Queijo ricota', amount: 50, unit: 'g', category: 'proteina' },
+      { name: 'Azeite', amount: 8, unit: 'ml', category: 'outros' },
+      { name: 'Alho', amount: 3, unit: 'g', category: 'tempero' },
+      { name: 'Tomilho', amount: 2, unit: 'g', category: 'tempero' },
+      { name: 'Vinagre balsâmico', amount: 5, unit: 'ml', category: 'tempero' }
+    ],
+    instructions: [
+      'Limpe os cogumelos e retire o talo',
+      'Tempere com alho, tomilho e sal',
+      'Grelhe os cogumelos por 5 minutos cada lado',
+      'Prepare uma salada com rúcula e tomates',
+      'Tempere a salada com azeite e vinagre',
+      'Sirva os cogumelos sobre a salada com ricota'
+    ],
+    nutritionalInfo: {
+      calories: 180,
+      protein: 12,
+      carbs: 8,
+      fat: 10,
+      fiber: 4
+    },
+    prepTime: 15,
     difficulty: 'fácil',
     servings: 1
   }
