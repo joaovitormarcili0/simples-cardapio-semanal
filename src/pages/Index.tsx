@@ -59,7 +59,7 @@ const Index = () => {
       setCurrentRecipe(recipe);
     }
   };
-  return <div className="min-h-screen bg-orange-200">
+  return <div className="min-h-screen bg-slate-900">
       <div className="relative z-10">
         <ThemeToggle />
         
