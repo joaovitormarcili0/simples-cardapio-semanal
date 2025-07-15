@@ -14,7 +14,6 @@ interface ShoppingListProps {
 const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps) => {
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
 
-  // Consolidar ingredientes de todas as receitas
   const consolidateIngredients = (): ShoppingListItem[] => {
     const ingredientMap = new Map<string, ShoppingListItem>();
 
@@ -43,14 +42,13 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
     return Array.from(ingredientMap.values())
       .map(item => ({
         ...item,
-        amount: Math.round(item.amount * 10) / 10 // Arredondar para 1 decimal
+        amount: Math.round(item.amount * 10) / 10
       }))
       .sort((a, b) => a.category.localeCompare(b.category));
   };
 
   const shoppingList = consolidateIngredients();
 
-  // Agrupar por categoria
   const groupedItems = shoppingList.reduce((groups, item) => {
     const category = item.category;
     if (!groups[category]) {
@@ -125,16 +123,19 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
         <head>
           <title>Lista de Compras - Comida Simples</title>
           <style>
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            h1 { color: #7c2ae3; text-align: center; }
-            h3 { color: #57209c; border-bottom: 1px solid #e9ddff; padding-bottom: 5px; }
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; color: #3a3a3a; }
+            h1 { color: #B388EB; text-align: center; }
+            h3 { color: #B388EB; border-bottom: 2px solid #FFD6A5; padding-bottom: 8px; margin-top: 24px; }
             ul { list-style-type: none; padding-left: 0; }
-            li { padding: 3px 0; border-bottom: 1px dotted #ccc; }
+            li { padding: 8px 0; border-bottom: 1px dotted #e0e0e0; }
+            .header { text-align: center; margin-bottom: 32px; }
           </style>
         </head>
         <body>
-          <h1>Lista de Compras - Comida Simples</h1>
-          <p><strong>Para ${servings} pessoa${servings > 1 ? 's' : ''}</strong></p>
+          <div class="header">
+            <h1>🛒 Lista de Compras - Comida Simples</h1>
+            <p><strong>Para ${servings} pessoa${servings > 1 ? 's' : ''}</strong></p>
+          </div>
           ${printContent}
         </body>
       </html>
@@ -151,12 +152,12 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
     <div className="recipe-card">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <ShoppingCart className="h-6 w-6 text-lilac-600 dark:text-lilac-400" />
+          <ShoppingCart className="h-6 w-6 text-primary" />
           <div>
-            <h3 className="text-xl font-bold font-lato text-gray-900 dark:text-white">
+            <h3 className="text-xl font-bold font-lato text-foreground">
               Lista de Compras {isWeekly ? 'da Semana' : ''}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-muted-foreground">
               {checkedCount} de {totalCount} itens marcados
             </p>
           </div>
@@ -167,28 +168,28 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
             onClick={exportList}
             variant="outline"
             size="sm"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 hover:bg-accent/50"
           >
             <Download className="h-4 w-4" />
-            Exportar
+            <span className="hidden sm:inline">Exportar</span>
           </Button>
           <Button
             onClick={printList}
             variant="outline"
             size="sm"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 hover:bg-accent/50"
           >
             <Printer className="h-4 w-4" />
-            Imprimir
+            <span className="hidden sm:inline">Imprimir</span>
           </Button>
         </div>
       </div>
 
       {/* Barra de progresso */}
       <div className="mb-6">
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+        <div className="w-full bg-muted rounded-full h-3">
           <div
-            className="bg-lilac-500 h-2 rounded-full transition-all duration-300"
+            className="bg-primary h-3 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -198,16 +199,16 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
       <div className="space-y-6">
         {Object.entries(groupedItems).map(([category, items]) => (
           <div key={category}>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-2xl" role="img" aria-label={categoryLabels[category as keyof typeof categoryLabels]}>
                 {categoryEmojis[category as keyof typeof categoryEmojis] || '📦'}
               </span>
-              <h4 className="text-lg font-semibold font-lato text-gray-900 dark:text-white">
+              <h4 className="text-lg font-semibold font-lato text-foreground">
                 {categoryLabels[category as keyof typeof categoryLabels] || category}
               </h4>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {items.map((item, index) => {
                 const itemKey = `${category}-${item.name}-${index}`;
                 const isChecked = checkedItems.has(itemKey);
@@ -215,26 +216,26 @@ const ShoppingList = ({ recipes, servings, isWeekly = false }: ShoppingListProps
                 return (
                   <div
                     key={itemKey}
-                    className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
+                    className={`flex items-center gap-3 p-4 rounded-lg transition-all duration-200 ${
                       isChecked 
-                        ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' 
-                        : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        ? 'bg-secondary/20 border border-secondary/50' 
+                        : 'bg-muted/30 hover:bg-muted/50'
                     }`}
                   >
                     <Checkbox
                       checked={isChecked}
                       onCheckedChange={() => toggleItem(itemKey)}
-                      className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+                      className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                     />
                     <div className={`flex-1 ${isChecked ? 'line-through opacity-60' : ''}`}>
-                      <span className="text-gray-700 dark:text-gray-300">{item.name}</span>
+                      <span className="text-foreground">{item.name}</span>
                     </div>
                     <span className={`text-sm font-medium ${
-                      isChecked ? 'text-green-600 dark:text-green-400' : 'text-lilac-600 dark:text-lilac-400'
+                      isChecked ? 'text-primary/60' : 'text-primary'
                     }`}>
                       {item.amount}{item.unit}
                     </span>
-                    {isChecked && <Check className="h-4 w-4 text-green-500" />}
+                    {isChecked && <Check className="h-4 w-4 text-primary" />}
                   </div>
                 );
               })}
